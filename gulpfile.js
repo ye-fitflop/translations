@@ -9,8 +9,9 @@ var gulp = require('gulp'),
     jsonminify = require('gulp-jsonminify'),
     imagemin = require('gulp-imagemin'),
     pngcrush = require('imagemin-pngcrush'),
-    concat = require('gulp-concat');
-	i18nExcel2json = require('gulp-i18n-excel2json');
+    concat = require('gulp-concat'),
+	excelJson = require('gulp-i18n-excel2json'),
+    jsonHTML = require('gulp-html-i18n'),
     concat = require('gulp-concat');
 
 var env,
@@ -36,10 +37,10 @@ sassSources = ['components/sass/style.scss'];
 htmlSources = [outputDir + '*.html'];
 jsonSources = [outputDir + 'js/*.json'];
 
-gulp.task('translate', function() {
+gulp.task('import', function() {
     gulp.src('config/**.xlsx')
-        .pipe(i18nExcel2json({
-            destFile : 'locales/__lng__/translations.json',
+        .pipe(excelJson({
+            destFile : 'locales/__lng__/index.json',
             readable: true,
             colKey: 'A',
             colValArray: ['B', 'C', 'D', 'E', 'F'],
@@ -47,6 +48,16 @@ gulp.task('translate', function() {
             rowHeader: 1
         }))
         .pipe(gulp.dest('builds/development/js'))
+});
+
+gulp.task('export', function() {
+    gulp.src(htmlSources)
+        .pipe(jsonHTML({
+            langDir: outputDir + 'js/locales',
+            createLangDirs: true,
+            trace: true
+        }))
+        .pipe(gulp.dest(outputDir));
 });
 
 gulp.task('js', function() {
@@ -110,4 +121,4 @@ gulp.task('json', function() {
         .pipe(connect.reload())
 });
 
-gulp.task('default', ['html', 'json', 'js', 'compass', 'images', 'connect', 'watch']);
+gulp.task('default', ['export', 'html', 'json', 'js', 'compass', 'images', 'connect', 'watch']);
