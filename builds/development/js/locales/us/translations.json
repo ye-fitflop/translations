@@ -1,0 +1,11 @@
+{
+    "locale": "US",
+    "h1": "uscanada1",
+    "slider": {
+        "p": "uscanada2",
+        "cta": "uscanada3"
+    },
+    "slot1": "uscanada4",
+    "slot2": "uscanada5",
+    "small": "uscanada6"
+}

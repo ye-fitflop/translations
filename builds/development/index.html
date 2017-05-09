@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Handlebars Template Example</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </head>
+    <body>
+        <script type="text/x-handlebars-template" id="itemTemplate">
+            <div>
+                <h1>{{h1}}</h1>
+                <div>
+                    <p>{{slider.p}}</p>
+                    <a href="#">{{slider.cta}}</a>
+                </div>
+                <p>{{slot1}}</p>
+                <p>{{slot2}}</p>
+                <small>{{small}}</small>
+            </div>
+        </script>
+
+        <div id="container"></div>
+    </body>
+</html>
