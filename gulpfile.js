@@ -50,15 +50,14 @@ gulp.task('import', function() {
         .pipe(gulp.dest('builds/development/js'))
 });
 
-gulp.task('export', function() {
-    gulp.src(htmlSources)
-        .pipe(jsonHTML({
-            langDir: outputDir + 'js/locales',
-            createLangDirs: true,
-            trace: true
-        }))
-        .pipe(gulp.dest(outputDir));
-});
+// gulp.task('export', function() {
+//     gulp.src(htmlSources)
+//         .pipe(jsonHTML({
+//             langDir: outputDir + 'js/locales',
+//             createLangDirs: true
+//         }))
+//         .pipe(gulp.dest(outputDir));
+// });
 
 gulp.task('js', function() {
     gulp.src(jsSources)
@@ -66,7 +65,7 @@ gulp.task('js', function() {
         .pipe(browserify())
         .pipe(gulpif(env === 'production', uglify()))
         .pipe(gulp.dest(outputDir + 'js'))
-        .pipe(connect.reload());
+        .pipe(connect.reload())
 });
 
 gulp.task('compass', function() {
@@ -97,7 +96,12 @@ gulp.task('connect', function() {
 });
 
 gulp.task('html', function() {
-    gulp.src('builds/development/*.html')       
+    gulp.src('builds/development/*.html') 
+        .pipe(jsonHTML({
+            langDir: outputDir + 'js/locales',
+            createLangDirs: true
+        }))  
+        .pipe(gulp.dest(outputDir))    
         .pipe(gulpif(env === 'production', minifyHTML()))
         .pipe(gulpif(env === 'production', gulp.dest(outputDir)))
         .pipe(connect.reload())
@@ -121,4 +125,4 @@ gulp.task('json', function() {
         .pipe(connect.reload())
 });
 
-gulp.task('default', ['export', 'html', 'json', 'js', 'compass', 'images', 'connect', 'watch']);
+gulp.task('default', ['html', 'json', 'js', 'compass', 'images', 'connect', 'watch']);
