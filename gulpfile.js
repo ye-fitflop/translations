@@ -50,15 +50,6 @@ gulp.task('import', function() {
         .pipe(gulp.dest('builds/development/js'))
 });
 
-// gulp.task('export', function() {
-//     gulp.src(htmlSources)
-//         .pipe(jsonHTML({
-//             langDir: outputDir + 'js/locales',
-//             createLangDirs: true
-//         }))
-//         .pipe(gulp.dest(outputDir));
-// });
-
 gulp.task('js', function() {
     gulp.src(jsSources)
         .pipe(concat('script.js'))
@@ -101,7 +92,7 @@ gulp.task('html', function() {
             langDir: outputDir + 'js/locales',
             createLangDirs: true
         }))  
-        .pipe(gulp.dest(outputDir))    
+        .pipe(gulp.dest(outputDir + 'outputs'))    
         .pipe(gulpif(env === 'production', minifyHTML()))
         .pipe(gulpif(env === 'production', gulp.dest(outputDir)))
         .pipe(connect.reload())
