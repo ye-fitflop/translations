@@ -1,0 +1,11 @@
+{
+    "locale": "EN",
+    "h1": "english1",
+    "slider": {
+        "p": "english2",
+        "cta": "english3"
+    },
+    "slot1": "english4",
+    "slot2": "english5",
+    "small": "english6"
+}
