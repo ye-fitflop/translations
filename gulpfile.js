@@ -11,8 +11,7 @@ var gulp = require('gulp'),
     pngcrush = require('imagemin-pngcrush'),
     concat = require('gulp-concat'),
 	excelJson = require('gulp-i18n-excel2json'),
-    jsonHTML = require('gulp-html-i18n'),
-    concat = require('gulp-concat');
+    jsonHTML = require('gulp-html-i18n');
 
 var env,
     jsSources,
