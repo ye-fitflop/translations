@@ -1,1 +1,10 @@
-{}
+{
+    "header1": "header1it",
+    "slider": {
+        "p": "slider.pit",
+        "cta": "slider.ctait"
+    },
+    "slot1": "slot1it",
+    "slot2": "slot2it",
+    "small": "smallit"
+}

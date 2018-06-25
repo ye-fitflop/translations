@@ -1,1 +1,10 @@
-{}
+{
+    "header1": "header1en_EU",
+    "slider": {
+        "p": "slider.pen_EU",
+        "cta": "slider.ctaen_EU"
+    },
+    "slot1": "slot1en_EU",
+    "slot2": "slot2en_EU",
+    "small": "smallen_EU"
+}

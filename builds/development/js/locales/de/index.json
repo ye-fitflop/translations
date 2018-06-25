@@ -1,1 +1,10 @@
-{}
+{
+    "header1": "header1de",
+    "slider": {
+        "p": "slider.pde",
+        "cta": "slider.ctade"
+    },
+    "slot1": "slot1de",
+    "slot2": "slot2de",
+    "small": "smallde"
+}

@@ -42,7 +42,7 @@ gulp.task('import', function() {
             destFile : 'locales/__lng__/index.json',
             readable: true,
             colKey: 'A',
-            colValArray: ['B', 'C', 'D', 'E', 'F'],
+            colValArray: ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
             rowStart: 2,
             rowHeader: 1
         }))

@@ -1,1 +1,10 @@
-{}
+{
+    "header1": "header1fr_CA",
+    "slider": {
+        "p": "slider.pfr_CA",
+        "cta": "slider.ctafr_CA"
+    },
+    "slot1": "slot1fr_CA",
+    "slot2": "slot2fr_CA",
+    "small": "smallfr_CA"
+}
